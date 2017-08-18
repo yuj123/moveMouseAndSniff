@@ -46,6 +46,18 @@ document.onmousemove =  %s;
 	""" % (injectFunc, injectVar, injectFunc)
 	driver.execute_script(command)
 	
+def move_mouse_to_pos(driver, x, y, injectVar="myVar"):
+	# reset the mouse to 1,1
+	currPos = check_mouse_pos(driver, injectVar)
+	offsetX = -currPos[0] + 0.5 # don't know why it had 0.5 different
+	offsetY = -currPos[1] + 0.5
+	builder = ActionChains(driver);
+	builder.move_by_offset(offsetX, offsetY).perform();
+	
+	# move mouse to x,y
+	builder = ActionChains(driver);
+	builder.move_by_offset(x-1, y-1).perform();	
+	
 def sniff(driver, injectVar="myVar"):
 	x,y = check_mouse_pos(driver, injectVar)
 
@@ -57,18 +69,8 @@ def sniff(driver, injectVar="myVar"):
 	return driver.execute_script(command)
 
 def move_mouse_to_pos_and_sniff(driver, x, y, injectVar="myVar"):
-	# reset the mouse to 1,1
-	currPos = check_mouse_pos(driver, injectVar)
-	offsetX = -currPos[0] + 0.5 # don't know why it had 0.5 different
-	offsetY = -currPos[1] + 0.5
-	builder = ActionChains(driver);
-	builder.move_by_offset(offsetX, offsetY).perform();
+	move_mouse_to_pos(driver, x, y, injectVar)
 	
-	# move mouse to x,y
-	builder = ActionChains(driver);
-	builder.move_by_offset(x-1, y-1).perform();
-	
-	# get the WebElement
 	return sniff(driver, injectVar)
 
 
