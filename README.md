@@ -19,15 +19,27 @@ The module provides the following functions:
 #### Result    
 ```
 > python test_move_sniff.py
+DEBUG:SimpleTestCase:-------------- test_locate_to_screen - begin --------------
 DEBUG:SimpleTestCase:The center point of the sub-image is located at (217, 421)
-.DEBUG:SimpleTestCase:mouse position=None
-DEBUG:SimpleTestCase:mouse position=[675, 34]
-DEBUG:SimpleTestCase:Resulted element=<selenium.webdriver.firefox.webelement.FirefoxWebElement (session="86a428b4-8c4b-481e-8906-49d6fa45d2d5", element="65377685-2636-4af2-a90a-409b9f09fe18")>
+DEBUG:SimpleTestCase:-------------- test_locate_to_screen - end --------------
+.DEBUG:SimpleTestCase:-------------- test_move_mouse_to_pos_and_sniff - begin --------------
+DEBUG:SimpleTestCase:mouse position before fist move=None
+DEBUG:SimpleTestCase:mouse position of first move=[675, 34]
+DEBUG:SimpleTestCase:mouse position of second move=[217, 421]
+DEBUG:SimpleTestCase:Resulted element=<selenium.webdriver.firefox.webelement.FirefoxWebElement (session="9a0c9aa2-2372-4957-9e6d-4bf27afdfcb1", element="bbc55052-356b-4117-a842-40fb9c88e6fe")>
 DEBUG:SimpleTestCase:element text=Selenium move mouse to point and sniff
 DEBUG:SimpleTestCase:element css=col-11 text-gray-dark mr-2
+DEBUG:SimpleTestCase:-------------- test_move_mouse_to_pos_and_sniff - end --------------
+.DEBUG:SimpleTestCase:-------------- test_move_mouse_to_pos_multiply - start --------------
+DEBUG:SimpleTestCase:mouse position before fist move=None
+DEBUG:SimpleTestCase:mouse position before first move=[50, 50]
+DEBUG:SimpleTestCase:Resulted element css=header header-logged-out position-relative f4 py-3
+DEBUG:SimpleTestCase:mouse position before second move=[50, 100]
+DEBUG:SimpleTestCase:Resulted element css=pagehead repohead instapaper_ignore readability-menu experiment-repo-nav
+DEBUG:SimpleTestCase:-------------- test_move_mouse_to_pos_multiply - end --------------
 .
 ----------------------------------------------------------------------
-Ran 2 tests in 12.963s
+Ran 3 tests in 10.100s
 
 OK
 ```
